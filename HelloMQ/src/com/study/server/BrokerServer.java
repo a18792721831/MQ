@@ -26,7 +26,6 @@ public class BrokerServer implements Runnable{
     @Override
     public void run() {
 
-        System.out.println("run!!!" );
         try (
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true)

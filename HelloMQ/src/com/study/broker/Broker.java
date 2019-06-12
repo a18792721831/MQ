@@ -24,7 +24,7 @@ public class Broker {
     public static String consume(){
         String msg = messageQueue.poll();
         if (msg != null) {
-            System.out.printf("已经消费%s消息，暂存的消息数量是%d\n", msg, messageQueue.size());
+            System.out.printf("已经消费消息%s，暂存的消息数量是%d\n", msg, messageQueue.size());
         } else {
             System.out.println("没有暂存的消息了");
         }

@@ -52,8 +52,7 @@ class ProduceClient{
 class ConsumeClient{
 
     public static void main(String[] args) throws IOException {
-        MqClient.consume();
-//        System.out.println(MqClient.consume());
+        System.out.println(MqClient.consume());
     }
 
 }
