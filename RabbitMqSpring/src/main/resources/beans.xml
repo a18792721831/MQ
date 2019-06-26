@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org./schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/rabbit
+       http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
+    <bean id="fooMessageListener" class="com.study.consume.Consume"/>
+    <!-- 配置连接 -->
+    <rabbit:connection-factory id="connectionFactory" host="localhost" port="5672" username="guest"
+                               password="guest" virtual-host="/" requested-heartbeat="60"/>
+    <!-- 配置RabbitTemplate -->
+    <rabbit:template id="amqpTemplate" connection-factory="connectionFactory"
+                     exchange="spring_exchange" routing-key="spring.hello"/>
+    <!-- 配置RabbitAdmin -->
+    <rabbit:admin connection-factory="connectionFactory"/>
+    <!-- 配置队列名称 -->
+    <rabbit:queue name="spring_queue"/>
+    <!-- 配置交换机类型 -->
+    <rabbit:topic-exchange name="spring_exchange">
+        <rabbit:bindings>
+            <rabbit:binding pattern="spring.*" queue="spring_queue"/>
+        </rabbit:bindings>
+    </rabbit:topic-exchange>
+    <!-- 配置监听器 -->
+    <rabbit:listener-container connection-factory="connectionFactory">
+        <rabbit:listener ref="fooMessageListener" queue-names="spring_queue"/>
+    </rabbit:listener-container>
+</beans>
