@@ -1,4 +1,4 @@
-# [RabbitMqSpring]()
+# [RabbitMqSpring](https://blog.csdn.net/a18792721831/article/details/93843315)
 spring与RabbitMQ集成
 # 1.中间桥接包
 spring与RabbitMq进行集成需要增加中间桥接依赖包：spring-rabbit.

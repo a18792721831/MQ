@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class Publish {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         try (
                 AbstractApplicationContext abstractApplicationContext =
                         new ClassPathXmlApplicationContext("beans.xml")) {
