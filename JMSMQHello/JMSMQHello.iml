@@ -16,5 +16,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="Gradle: org.apache.activemq:activemq-all:5.15.9" level="project" />
   </component>
 </module>
