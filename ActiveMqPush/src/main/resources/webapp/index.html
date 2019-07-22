@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ActiveMqPush:This is the consume.</title>
+    <!--<link rel="stylesheet" type="text/css" href="default.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="jquery.notify.jcss">-->
+    <script type="text/javascript" src="stomp.js"></script>
+    <script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //创建客户端
+        var client = Stomp.client("ws://localhost:61614/");
+        //定义连接成功回调函数
+        var onConnect = function () {
+            //订阅商品折扣主题的消息
+            client.subscribe("/queue/spring_queue", function (message) {
+                //弹出业务消息提醒
+                $("#body").append("\t" + message.body + "<br/>");
+            });
+
+        };
+        //定义错误时回调函数
+        var onError = function (msg) {
+            $("#body").html(msg);
+        };
+        //连接服务器
+        client.connect("guest", "guest", onConnect, onError);
+        client.heartbeat.incoming = 5000;
+        client.heartbeat.outgoing = 5000;
+    });
+</script>
+<body>
+<div id="body"></div>
+</body>
+</html>
