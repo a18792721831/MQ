@@ -43,3 +43,7 @@ spring与RabbitMQ集成
 消费
 6.创建消费者
 7.注册监听
+# [9.ActiveMQ与Spring整合](https://blog.csdn.net/a18792721831/article/details/95647617)
+MQ有很多的操作其实是重复的，所以用spring去管理这部分相同的处理逻辑，大大的简化ActiveMQ的访问流程。
+#[10.ActiveMq消息推送](https://blog.csdn.net/a18792721831/article/details/96888152)
+利用ActiveMQ提供的WebSTOMP插件，让浏览器能够使用WebSocket和ActiveMQ接收或者发送消息。由服务端向ActiveMQ发送STOMP消息，而浏览器作为客户端基于stomp.js利用WebSocket与之通信，订阅并接收消息。

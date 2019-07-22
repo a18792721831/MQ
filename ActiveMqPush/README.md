@@ -1,0 +1,2 @@
+#[ActiveMq消息推送](https://blog.csdn.net/a18792721831/article/details/96888152)
+利用ActiveMQ提供的WebSTOMP插件，让浏览器能够使用WebSocket和ActiveMQ接收或者发送消息。由服务端向ActiveMQ发送STOMP消息，而浏览器作为客户端基于stomp.js利用WebSocket与之通信，订阅并接收消息。
