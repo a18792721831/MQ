@@ -1,6 +1,5 @@
 package com.study.consume;
 
-import org.springframework.amqp.core.AcknowledgeMode;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageListener;
 
@@ -17,9 +16,5 @@ public class Consume implements MessageListener {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-    }
-    @Override
-    public void containerAckMode(AcknowledgeMode mode) {
-        System.out.println("ackmode:\t" + mode.name());
     }
 }
