@@ -18,13 +18,8 @@ public class Client {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring/*.xml");
         Event event = applicationContext.getBean("event", Event.class);
         EventDao eventDao = applicationContext.getBean("eventDao", EventDao.class);
-        DataSourceManage.set(DataSourceType.DATA_SOURCE_SUB);
-        System.out.println(eventDao.queryEventById(20L));
-        EventCondition eventCondition = applicationContext.getBean("eventCondition", EventCondition.class);
-        eventCondition.setProcessType(ProcessType.NEW);
-        eventDao.queryEventByCondition(eventCondition).stream().forEach(e -> System.out.println(e));
-
-        eventDao.delteEvent(eventDao.queryEventById(99999999L));
+        DataSourceManage.set(DataSourceType.DATA_SOURCE_INTE);
+        eventDao.addEvent(event);
     }
 
 }

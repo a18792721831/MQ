@@ -49,14 +49,7 @@
                 ,SYSDATE
             </otherwise>
         </choose>
-        <choose>
-            <when test="updatedt != null">
-                ,#{updatedt}
-            </when>
-            <otherwise>
-                ,SYSDATE
-            </otherwise>
-        </choose>
+        ,NULL
         )
     </insert>
     <update id="modifyEvent" parameterType="com.study.domain.Event">
@@ -72,9 +65,6 @@
                     </when>
                     <when test="content != null">
                         CONTENT = #{content},
-                    </when>
-                    <when test="createdt != null">
-                        CREATEDT = #{createdt},
                     </when>
                     <when test="updatedt != null">
                         UPDATEDT = #{updatedt},
