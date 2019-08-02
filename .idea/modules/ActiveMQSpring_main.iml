@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="ActiveMQSpring:main" external.linked.project.path="$MODULE_DIR$/../../ActiveMQSpring" external.root.project.path="$MODULE_DIR$/../../ActiveMQSpring" external.system.id="GRADLE" external.system.module.group="ActiveMQSpring" external.system.module.type="sourceSet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration />
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/../../ActiveMQSpring/out/production/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../ActiveMQSpring/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../ActiveMQSpring/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../ActiveMQSpring/src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: org.apache.activemq:activemq-all:5.15.9" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-jms:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.activemq:activemq-pool:5.15.9" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-context:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-messaging:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-tx:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-aop:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-beans:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-expression:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-core:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.activemq:activemq-jms-pool:5.15.9" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.activemq:activemq-client:5.15.9" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.25" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.geronimo.specs:geronimo-jta_1.0.1B_spec:1.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.commons:commons-pool2:2.4.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-jcl:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.geronimo.specs:geronimo-jms_1.1_spec:1.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.fusesource.hawtbuf:hawtbuf:1.11" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.geronimo.specs:geronimo-j2ee-management_1.1_spec:1.0.1" level="project" />
+  </component>
+</module>

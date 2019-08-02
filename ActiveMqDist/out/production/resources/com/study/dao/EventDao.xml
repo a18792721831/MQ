@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.dao.EventDao">
+    <sql id="str_select_event">
+        ID,TYPE,PROCESS,CONTENT,CREATEDT,UPDATEDT
+    </sql>
+    <sql id="str_table_even">
+        EVENT
+    </sql>
+    <insert id="addEvent" useGeneratedKeys="true" keyProperty="id" keyColumn="ID" parameterType="com.study.domain.Event">
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="BEFORE">
+            SELECT SEQ_EVENT.NEXTVAL AS ID FROM DUAL
+        </selectKey>
+        INSERT INTO
+        <include refid="str_table_even"/>
+        (<include refid="str_select_event"/>)
+        VALUES(#{id}
+        <choose>
+            <when test="eventType != null">
+                ,#{eventType.value}
+            </when>
+            <otherwise>
+                ,0
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="processType != null">
+                ,#{processType.value}
+            </when>
+            <otherwise>
+                ,0
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="content != null">
+                ,#{content}
+            </when>
+            <otherwise>
+                ,''
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="createdt != null">
+                ,#{createdt}
+            </when>
+            <otherwise>
+                ,SYSDATE
+            </otherwise>
+        </choose>
+        ,NULL
+        )
+    </insert>
+    <update id="modifyEvent" parameterType="com.study.domain.Event">
+        <if test="id != null">
+            UPDATE <include refid="str_table_even" />
+            <set>
+                <choose>
+                    <when test="eventType != null">
+                        TYPE = #{eventType.value},
+                    </when>
+                    <when test="processType != null">
+                        PROCESS = #{processType.value},
+                    </when>
+                    <when test="content != null">
+                        CONTENT = #{content},
+                    </when>
+                    <when test="updatedt != null">
+                        UPDATEDT = #{updatedt},
+                    </when>
+                    <otherwise>
+                    </otherwise>
+                </choose>
+            </set>
+            WHERE ID = #{id}
+        </if>
+    </update>
+    <update id="delteEvent" parameterType="com.study.domain.Event">
+        <if test="id != null">
+          DELETE <include refid="str_table_even"/> WHERE ID = #{id}
+        </if>
+    </update>
+    <resultMap id="selectEvent2POJO" type="com.study.domain.Event">
+        <result property="eventType" column="TYPE" javaType="com.study.nems.EventType"
+                typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+        <result property="processType" column="PROCESS" javaType="com.study.nems.ProcessType"
+                typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+    </resultMap>
+    <select id="queryEventById" parameterType="java.lang.Long" resultMap="selectEvent2POJO">
+        <if test="id != null">
+            SELECT <include refid="str_select_event"/> FROM <include refid="str_table_even"/>
+            WHERE ID = #{id}
+        </if>
+    </select>
+    <select id="queryEventByCondition" parameterType="com.study.condition.EventCondition" resultMap="selectEvent2POJO">
+        SELECT <include refid="str_select_event"/> FROM <include refid="str_table_even"/>
+        <trim prefix="WHERE" prefixOverrides="AND">
+            <choose>
+                <when test="id != null">
+                    AND ID = #{id}
+                </when>
+                <when test="eventType != null">
+                    AND TYPE = #{eventType.value}
+                </when>
+                <when test="processType != null">
+                    AND PROCESS = #{processType.value}
+                </when>
+                <when test="createDt != null">
+                    AND CREATEDT >= #{createDt}
+                </when>
+                <when test="updateDt != null">
+                    AND UPDATEDT >= #{updateDt}
+                </when>
+            </choose>
+        </trim>
+    </select>
+</mapper>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--  加载配置文件 -->
+    <context:property-placeholder location="classpath:properties/ojdbc.properties"/>
+    <!-- 配置数据源 -->
+    <bean id="dataSource1"
+          class="org.apache.commons.dbcp2.BasicDataSource">
+        <!-- 数据库驱动 -->
+        <property name="driverClassName">
+            <value>${ojdbc.driver}</value>
+        </property>
+        <!-- 连接数据库的url -->
+        <property name="url">
+            <value>${ojdbc.url}</value>
+        </property>
+        <property name="username">
+            <value>${ojdbc.username.db1}</value>
+        </property>
+        <property name="password">
+            <value>${ojdbc.password.db1}</value>
+        </property>
+        <property name="maxTotal">
+            <value>${ojdbc.maxTotal}</value>
+        </property>
+        <property name="maxIdle">
+            <value>${ojdbc.maxIdle}</value>
+        </property>
+        <property name="initialSize">
+            <value>${ojdbc.initialSize}</value>
+        </property>
+    </bean>
+    <bean id="dataSource2"
+          class="org.apache.commons.dbcp2.BasicDataSource">
+        <!-- 数据库驱动 -->
+        <property name="driverClassName">
+            <value>${ojdbc.driver}</value>
+        </property>
+        <!-- 连接数据库的url -->
+        <property name="url">
+            <value>${ojdbc.url}</value>
+        </property>
+        <property name="username">
+            <value>${ojdbc.username.db2}</value>
+        </property>
+        <property name="password">
+            <value>${ojdbc.password.db2}</value>
+        </property>
+        <property name="maxTotal">
+            <value>${ojdbc.maxTotal}</value>
+        </property>
+        <property name="maxIdle">
+            <value>${ojdbc.maxIdle}</value>
+        </property>
+        <property name="initialSize">
+            <value>${ojdbc.initialSize}</value>
+        </property>
+    </bean>
+    <!-- 配置MyBatis工厂 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="configLocation">
+            <value>mybatis/mybatis.xml</value>
+        </property>
+    </bean>
+    <!-- 配置mapper扫描器 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage">
+            <value>com.study.dao</value>
+        </property>
+        <property name="sqlSessionFactoryBeanName">
+            <value>sqlSessionFactory</value>
+        </property>
+    </bean>
+    <!-- 自定义的配置 -->
+    <bean id="dataSource" class="com.study.data.source.MyDataSource" >
+        <property name="defaultTargetDataSource" ref="dataSource1"/>
+        <property name="targetDataSources">
+            <map key-type="com.study.nems.DataSourceType">
+                <entry key="DATA_SOURCE_SUB" value-ref="dataSource1" />
+                <entry key="DATA_SOURCE_INTE" value-ref="dataSource2" />
+            </map>
+        </property>
+    </bean>
+</beans>

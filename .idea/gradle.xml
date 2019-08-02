@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/ActiveMQSpring" />
+        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/ActiveMQSpring" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/ActiveMqDist" />
+        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/ActiveMqDist" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/ActiveMqHello" />
+        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/ActiveMqHello" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/ActiveMqPush" />
+        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/ActiveMqPush" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/JMSMQHello" />
+        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/JMSMQHello" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Jms2MqHello" />
+        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/Jms2MqHello" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/MqPersistence" />
+        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/MqPersistence" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/RabbitMqAck" />
+        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/RabbitMqAck" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/RabbitMqExchange" />
+        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/RabbitMqExchange" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/RabbitMqHello" />
+        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/RabbitMqHello" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/RabbitMqPublish" />
+        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/RabbitMqPublish" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/RabbitMqQueue" />
+        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/RabbitMqQueue" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/RabbitMqQueue1" />
+        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/RabbitMqQueue1" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/RabbitMqSpring" />
+        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/RabbitMqSpring" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/RabbitMqTest" />
+        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/RabbitMqTest" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

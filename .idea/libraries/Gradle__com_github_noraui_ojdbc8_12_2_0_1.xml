@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.noraui:ojdbc8:12.2.0.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.noraui/ojdbc8/12.2.0.1/689e2de33605c233139daf68e37562721d8702ef/ojdbc8-12.2.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.noraui/ojdbc8/12.2.0.1/cb6fc2a18e025c6705f8af0a6130e3a1ccb4e09f/ojdbc8-12.2.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

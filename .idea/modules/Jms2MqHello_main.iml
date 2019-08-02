@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="Jms2MqHello:main" external.linked.project.path="$MODULE_DIR$/../../Jms2MqHello" external.root.project.path="$MODULE_DIR$/../../Jms2MqHello" external.system.id="GRADLE" external.system.module.group="Jms2MqHello" external.system.module.type="sourceSet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/../../Jms2MqHello/out/production/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../Jms2MqHello/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../Jms2MqHello/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../Jms2MqHello/src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: org.apache.activemq:artemis-jms-client-all:2.9.0" level="project" />
+  </component>
+</module>

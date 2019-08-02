@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="ActiveMqDist_main" target="1.8" />
+      <module name="ActiveMqDist_test" target="1.8" />
+      <module name="ActiveMqHello_main" target="1.8" />
+      <module name="ActiveMqHello_test" target="1.8" />
+      <module name="ActiveMqPush_main" target="1.8" />
+      <module name="ActiveMqPush_test" target="1.8" />
+      <module name="ActiveMQSpring_main" target="1.8" />
+      <module name="ActiveMQSpring_test" target="1.8" />
+      <module name="HelloMQ_main" target="1.8" />
+      <module name="HelloMQ_test" target="1.8" />
+      <module name="Jms2MqHello_main" target="1.8" />
+      <module name="Jms2MqHello_test" target="1.8" />
+      <module name="JMSMQHello_main" target="1.8" />
+      <module name="JMSMQHello_test" target="1.8" />
+      <module name="MqPersistence_main" target="1.8" />
+      <module name="MqPersistence_test" target="1.8" />
+      <module name="RabbitMqAck_main" target="1.8" />
+      <module name="RabbitMqAck_test" target="1.8" />
+      <module name="RabbitMqExchange_main" target="1.8" />
+      <module name="RabbitMqExchange_test" target="1.8" />
+      <module name="RabbitMqHello_main" target="1.8" />
+      <module name="RabbitMqHello_test" target="1.8" />
+      <module name="RabbitMqPublish_main" target="1.8" />
+      <module name="RabbitMqPublish_test" target="1.8" />
+      <module name="RabbitMqQueue1_main" target="1.8" />
+      <module name="RabbitMqQueue1_test" target="1.8" />
+      <module name="RabbitMqQueue_main" target="1.8" />
+      <module name="RabbitMqQueue_test" target="1.8" />
+      <module name="RabbitMqSpring_main" target="1.8" />
+      <module name="RabbitMqSpring_test" target="1.8" />
+      <module name="RabbitMqTest_main" target="1.8" />
+      <module name="RabbitMqTest_test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMQSpring.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMQSpring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMQSpring_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMQSpring_main.iml" group="ActiveMQSpring" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMQSpring_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMQSpring_test.iml" group="ActiveMQSpring" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMqDist.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMqDist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMqDist_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMqDist_main.iml" group="ActiveMqDist" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMqDist_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMqDist_test.iml" group="ActiveMqDist" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMqHello.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMqHello.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMqHello_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMqHello_main.iml" group="ActiveMqHello" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMqHello_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMqHello_test.iml" group="ActiveMqHello" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMqPush.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMqPush.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMqPush_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMqPush_main.iml" group="ActiveMqPush" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMqPush_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMqPush_test.iml" group="ActiveMqPush" />
+      <module fileurl="file://$PROJECT_DIR$/HelloMQ/HelloMQ.iml" filepath="$PROJECT_DIR$/HelloMQ/HelloMQ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JMSMQHello.iml" filepath="$PROJECT_DIR$/.idea/modules/JMSMQHello.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JMSMQHello_main.iml" filepath="$PROJECT_DIR$/.idea/modules/JMSMQHello_main.iml" group="JMSMQHello" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JMSMQHello_test.iml" filepath="$PROJECT_DIR$/.idea/modules/JMSMQHello_test.iml" group="JMSMQHello" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Jms2MqHello.iml" filepath="$PROJECT_DIR$/.idea/modules/Jms2MqHello.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Jms2MqHello_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Jms2MqHello_main.iml" group="Jms2MqHello" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Jms2MqHello_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Jms2MqHello_test.iml" group="Jms2MqHello" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MqPersistence.iml" filepath="$PROJECT_DIR$/.idea/modules/MqPersistence.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MqPersistence_main.iml" filepath="$PROJECT_DIR$/.idea/modules/MqPersistence_main.iml" group="MqPersistence" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MqPersistence_test.iml" filepath="$PROJECT_DIR$/.idea/modules/MqPersistence_test.iml" group="MqPersistence" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqAck.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqAck.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqAck_main.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqAck_main.iml" group="RabbitMqAck" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqAck_test.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqAck_test.iml" group="RabbitMqAck" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqExchange.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqExchange.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqExchange_main.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqExchange_main.iml" group="RabbitMqExchange" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqExchange_test.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqExchange_test.iml" group="RabbitMqExchange" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqHello.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqHello.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqHello_main.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqHello_main.iml" group="RabbitMqHello" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqHello_test.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqHello_test.iml" group="RabbitMqHello" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqPublish.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqPublish.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqPublish_main.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqPublish_main.iml" group="RabbitMqPublish" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqPublish_test.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqPublish_test.iml" group="RabbitMqPublish" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqQueue.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqQueue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqQueue1.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqQueue1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqQueue1_main.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqQueue1_main.iml" group="RabbitMqQueue1" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqQueue1_test.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqQueue1_test.iml" group="RabbitMqQueue1" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqQueue_main.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqQueue_main.iml" group="RabbitMqQueue" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqQueue_test.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqQueue_test.iml" group="RabbitMqQueue" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqSpring.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqSpring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqSpring_main.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqSpring_main.iml" group="RabbitMqSpring" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqSpring_test.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqSpring_test.iml" group="RabbitMqSpring" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqTest.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqTest_main.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqTest_main.iml" group="RabbitMqTest" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqTest_test.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqTest_test.iml" group="RabbitMqTest" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/StudyMQ.iml" filepath="$PROJECT_DIR$/.idea/StudyMQ.iml" />
+    </modules>
+  </component>
+</project>
