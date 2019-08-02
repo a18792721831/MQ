@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--注解扫描的包-->
+    <context:component-scan base-package="com.study"/>
+    <!-- 创建连接工厂，指定url -->
+    <bean id="jmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory" destroy-method="stop">
+        <property name="connectionFactory">
+            <bean class="org.apache.activemq.ActiveMQConnectionFactory">
+                <property name="brokerURL">
+                    <value>tcp://localhost:61616</value>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <!-- 使用缓存连接工厂管理 -->
+    <bean id="cachingConnectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+        <property name="targetConnectionFactory" ref="jmsFactory"/>
+        <!-- 设置最大连接数为1 -->
+        <property name="sessionCacheSize" value="1"/>
+    </bean>
+    <!-- 创建连接模板，指定了消息转换器 -->
+    <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="cachingConnectionFactory"/>
+        <property name="messageConverter">
+            <bean class="org.springframework.jms.support.converter.SimpleMessageConverter"/>
+        </property>
+    </bean>
+    <!-- 声明目标队列 -->
+    <bean id="testQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg name="name" value="spring_queue"/>
+    </bean>
+    <!-- 声明目标主题 -->
+    <bean id="testTopic" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg index="0" value="active-test"/>
+    </bean>
+    <!-- 注册队列监听 -->
+    <bean id="queueListener" class="com.study.consume.QueueListener"/>
+    <!-- 注册主题监听 -->
+    <bean id="topic1Listener" class="com.study.consume.Topic1Listener"/>
+    <!--注册主题监听-->
+    <bean id="topic2Listener" class="com.study.consume.Topic2Listener"/>
+    <!--创建队列转换器-->
+    <bean id="queueContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <!--使用的连接工程-->
+        <property name="connectionFactory" ref="cachingConnectionFactory"/>
+        <!--转换的目标队列或主题-->
+        <property name="destination" ref="testQueue"/>
+        <!--转换器绑定的监听器-->
+        <property name="messageListener" ref="queueListener"/>
+    </bean>
+    <!--主题转换器-->
+    <bean id="topic1Container" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="cachingConnectionFactory"/>
+        <property name="destination" ref="testTopic"/>
+        <property name="messageListener" ref="topic1Listener"/>
+    </bean>
+    <!--主题转换器-->
+    <bean id="topic2Container" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="cachingConnectionFactory"/>
+        <property name="destination" ref="testTopic"/>
+        <property name="messageListener" ref="topic2Listener"/>
+    </bean>
+</beans>

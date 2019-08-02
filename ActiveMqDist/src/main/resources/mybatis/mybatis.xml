@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!-- 延迟加载全局 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- 关联对象属性的延迟加载 -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <!-- SQL调试 -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!-- 改变运行时行为 -->
+    <typeAliases>
+        <!-- 配置别名 -->
+        <package name="com.study.domain"/>
+    </typeAliases>
+</configuration>

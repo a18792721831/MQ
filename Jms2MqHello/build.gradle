@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'Jms2MqHello'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven {
+        url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+    maven {
+        url 'https://repo1.maven.org/maven2/'
+    }
+}
+
+dependencies {
+    implementation group: 'org.apache.activemq', name: 'artemis-jms-client-all', version: '2.9.0'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
