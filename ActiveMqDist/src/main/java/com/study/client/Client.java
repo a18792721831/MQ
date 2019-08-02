@@ -20,6 +20,7 @@ public class Client {
         EventDao eventDao = applicationContext.getBean("eventDao", EventDao.class);
         DataSourceManage.set(DataSourceType.DATA_SOURCE_INTE);
         eventDao.addEvent(event);
+        System.out.println(event);
     }
 
 }
