@@ -14,6 +14,6 @@
     <!-- 改变运行时行为 -->
     <typeAliases>
         <!-- 配置别名 -->
-        <package name="com.study.domain"/>
+        <package name="com.study"/>
     </typeAliases>
 </configuration>

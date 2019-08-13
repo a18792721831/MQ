@@ -2,12 +2,14 @@ package com.study.dao.sub;
 
 import com.study.condition.SubscriberCondition;
 import com.study.domain.Subscriber;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * @author jiayq
  */
+@Repository
 public interface SubscriberDao {
 
     /**
@@ -15,21 +17,21 @@ public interface SubscriberDao {
      * @param subscriber
      * @return
      */
-    Subscriber addSubscriber(Subscriber subscriber);
+    void addSubscriber(Subscriber subscriber);
 
     /**
      * modify Subscriber
      * @param subscriber
      * @return
      */
-    Subscriber modifySubscriber(Subscriber subscriber);
+    void modifySubscriber(Subscriber subscriber);
 
     /**
      * delete Subscriber
      * @param subscriber
      * @return
      */
-    Subscriber deleteSubscriber(Subscriber subscriber);
+    void deleteSubscriber(Subscriber subscriber);
 
     /**
      * query Subscriber by id

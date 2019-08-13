@@ -38,7 +38,7 @@
                 ,#{content}
             </when>
             <otherwise>
-                ,''
+                ,NULL
             </otherwise>
         </choose>
         <choose>

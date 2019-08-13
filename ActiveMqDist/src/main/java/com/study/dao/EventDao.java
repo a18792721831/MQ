@@ -3,15 +3,13 @@ package com.study.dao;
 import com.study.condition.EventCondition;
 import com.study.domain.Event;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.beans.Transient;
 import java.util.List;
 
 /**
  * @author jiayq
  */
-@Repository(value = "eventDao")
+@Repository
 public interface EventDao {
 
     /**

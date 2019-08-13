@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.dao.sub.SubscriberDao">
+    <sql id="str_select_subscriber">
+        ID,CODE,NAME,PASSWORD,STATE
+    </sql>
+    <sql id="str_table_subscriber">
+        SUBSCRIBER
+    </sql>
+    <insert id="addSubscriber" useGeneratedKeys="true" keyColumn="ID" keyProperty="id" parameterType="subscriber">
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="BEFORE">
+            SELECT SEQ_SUBSCRIBER.NEXTVAL AS ID FROM DUAL
+        </selectKey>
+        INSERT INTO
+        <include refid="str_table_subscriber"/>
+        (<include refid="str_select_subscriber"/>)
+        VALUES
+        (#{id}
+        <choose>
+            <when test="code != null">
+                ,#{code}
+            </when>
+            <otherwise>
+                ,NULL
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="name != null">
+                ,#{name}
+            </when>
+            <otherwise>
+                ,NULL
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="password != null">
+                ,#{password}
+            </when>
+            <otherwise>
+                ,NULL
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="state != null">
+                ,#{state}
+            </when>
+            <otherwise>
+                ,0
+            </otherwise>
+        </choose>)
+    </insert>
+    <update id="modifySubscriber" parameterType="subscriber">
+        <if test="id != null">
+            UPDATE <include refid="str_table_subscriber"/>
+            <set>
+                <choose>
+                    <when test="code != null">
+                        CODE = #{code},
+                    </when>
+                    <when test="name != null">
+                        NAME = #{name},
+                    </when>
+                    <when test="password != null">
+                        PASSWORD = #{password},
+                    </when>
+                    <when test="state != null">
+                        STATE = #{state},
+                    </when>
+                    <otherwise>
+                    </otherwise>
+                </choose>
+            </set>
+            WHERE ID = #{id}
+        </if>
+    </update>
+    <update id="deleteSubscriber" parameterType="subscriber">
+        <if test="id != null">
+            DELETE <include refid="str_table_subscriber"/> WHERE ID = #{id}
+        </if>
+    </update>
+    <resultMap id="selectSubscriber2POJO" type="subscriber">
+        <result column="STATE" javaType="state" property="state"
+                typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+    </resultMap>
+    <select id="querySubscriberById" parameterType="java.lang.Long" resultMap="selectSubscriber2POJO">
+        <if test="id != null">
+            SELECT <include refid="str_select_subscriber"/>
+            FROM <include refid="str_table_subscriber"/>
+            WHERE ID = #{id}
+        </if>
+    </select>
+    <select id="querySubscriberByCondition" parameterType="subscriberCondition" resultMap="selectSubscriber2POJO">
+        SELECT <include refid="str_select_subscriber"/>
+        FROM <include refid="str_table_subscriber"/>
+        <trim prefix="WHERE" prefixOverrides="AND">
+            <choose>
+                <when test="id != null">
+                    AND ID = #{id}
+                </when>
+                <when test="code != null">
+                    AND CODE = #{code}
+                </when>
+                <when test="name != null">
+                    AND NAME = #{name}
+                </when>
+                <when test="state != null">
+                    AND STATE = #{state}
+                </when>
+                <otherwise>
+                </otherwise>
+            </choose>
+        </trim>
+    </select>
+</mapper>

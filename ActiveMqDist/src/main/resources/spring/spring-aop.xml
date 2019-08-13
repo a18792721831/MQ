@@ -10,8 +10,7 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context.xsd">
     <!-- 指定需要扫描的包 -->
-    <context:component-scan base-package="com.study">
-    </context:component-scan>
+    <context:component-scan base-package="com.study" annotation-config="true"/>
     <!-- 启动基于注解的声明式AspectJ支持 -->
-    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+    <aop:aspectj-autoproxy/>
 </beans>

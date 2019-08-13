@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.dao.inte.IntegralDao">
+    <sql id="str_select_integral">
+        ID,SUBSCRIBER,AMOUNT
+    </sql>
+    <sql id="str_table_integral">
+        INTEGRAL
+    </sql>
+    <insert id="addIntegral" parameterType="integral" useGeneratedKeys="true" keyProperty="id" keyColumn="ID">
+        <selectKey keyColumn="ID" keyProperty="id" resultType="java.lang.Long" order="BEFORE">
+            SELECT SEQ_INTEGRAL.NEXTVAL AS ID FROM DUAL
+        </selectKey>
+        INSERT INTO
+        <include refid="str_table_integral"/>
+        (<include refid="str_select_integral"/>)
+        VALUES
+        (#{id}
+        <choose>
+            <when test="subscriberId != null">
+                ,SUBSCRIBERID = #{subscriberId}
+            </when>
+            <otherwise>
+                ,NULL
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="amount != null">
+                ,AMOUNT = #{amount}
+            </when>
+            <otherwise>
+                ,NULL
+            </otherwise>
+        </choose>
+        )
+    </insert>
+    <update id="modifyIntegral" parameterType="integral">
+        <if test="id != null">
+            UPDATE <include refid="str_table_integral"/>
+            <set>
+                <choose>
+                    <when test="subscriberId != null">
+                        AND SUBSCRIBERID = #{subscriberId}
+                    </when>
+                    <when test="amount != null">
+                        AND AMOUNT = #{amount}
+                    </when>
+                    <otherwise>
+                    </otherwise>
+                </choose>
+            </set>
+            WHERE ID = #{id}
+        </if>
+    </update>
+    <update id="deleteIntegral" parameterType="integral">
+        <if test="id != null">
+            DELETE <include refid="str_table_integral"/> WHERE ID = #{id}
+        </if>
+    </update>
+    <select id="queryIntegralById" parameterType="java.lang.Long" resultType="integral">
+        <if test="id != null">
+            SELECT <include refid="str_select_integral"/>
+            FROM <include refid="str_table_integral"/>
+            WHERE ID = #{id}
+        </if>
+    </select>
+    <select id="queryIntegralBySubscriberId" parameterType="java.lang.Long" resultType="integral">
+        <if test="id != null">
+            SELECT <include refid="str_select_integral"/>
+            FROM <include refid="str_table_integral"/>
+            WHERE SUBSCRIBERID = #{id}
+        </if>
+    </select>
+    <select id="queryIntegralByAmount" parameterType="java.lang.Double" resultType="integral">
+        <if test="amount != null">
+            SELECT <include refid="str_select_integral"/>
+            FROM <include refid="str_table_integral"/>
+            WHERE AMOUNT >= #{amount}
+        </if>
+    </select>
+</mapper>

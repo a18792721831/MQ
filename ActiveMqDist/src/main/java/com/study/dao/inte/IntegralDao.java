@@ -1,12 +1,14 @@
 package com.study.dao.inte;
 
 import com.study.domain.Integral;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * @author jiayq
  */
+@Repository
 public interface IntegralDao {
 
     /**
@@ -14,21 +16,21 @@ public interface IntegralDao {
      * @param integral
      * @return
      */
-    Integral addIntegral(Integral integral);
+    void addIntegral(Integral integral);
 
     /**
      * modify Integral
      * @param integral
      * @return
      */
-    Integral modifyIntegral(Integral integral);
+    void modifyIntegral(Integral integral);
 
     /**
      * delete Integral
      * @param integral
      * @return
      */
-    Integral deleteIntegral(Integral integral);
+    void deleteIntegral(Integral integral);
 
     /**
      * query Integral by id
