@@ -2,14 +2,20 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="ActiveMqdis_main" target="1.8" />
+      <module name="ActiveMqdis_test" target="1.8" />
       <module name="ActiveMqDist_main" target="1.8" />
       <module name="ActiveMqDist_test" target="1.8" />
       <module name="ActiveMqHello_main" target="1.8" />
       <module name="ActiveMqHello_test" target="1.8" />
       <module name="ActiveMqPush_main" target="1.8" />
       <module name="ActiveMqPush_test" target="1.8" />
+      <module name="ActiveMQSpring.ActiveMQSpring.main" target="1.8" />
+      <module name="ActiveMQSpring.ActiveMQSpring.test" target="1.8" />
       <module name="ActiveMQSpring_main" target="1.8" />
       <module name="ActiveMQSpring_test" target="1.8" />
+      <module name="des_cdc_main" target="1.8" />
+      <module name="des_cdc_test" target="1.8" />
       <module name="HelloMQ_main" target="1.8" />
       <module name="HelloMQ_test" target="1.8" />
       <module name="Jms2MqHello_main" target="1.8" />

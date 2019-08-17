@@ -36,7 +36,7 @@
         </choose>
         <choose>
             <when test="state != null">
-                ,STATE = #{state}
+                ,STATE = #{state.value}
             </when>
             <otherwise>
                 ,1
@@ -52,11 +52,19 @@
                     <when test="subscriberId != null">
                        SUBSCRIBERID = #{subscriberId},
                     </when>
+                    <otherwise>
+                    </otherwise>
+                </choose>
+                <choose>
                     <when test="amount != null">
                         AMOUNT = #{amount},
                     </when>
+                    <otherwise>
+                    </otherwise>
+                </choose>
+                <choose>
                     <when test="state != null">
-                        STATE = #{state},
+                        STATE = #{state.value},
                     </when>
                     <otherwise>
                     </otherwise>

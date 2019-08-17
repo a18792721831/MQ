@@ -6,6 +6,7 @@ import com.study.domain.Event;
 import com.study.domain.Subscriber;
 import com.study.exception.MyBusinessException;
 import com.study.mqservice.SubscriberMqService;
+import com.study.nems.EventType;
 import com.study.nems.ProcessType;
 import com.study.service.SubscriberService;
 import com.study.util.EventFinishUtil;
@@ -46,6 +47,9 @@ public class SubsciberMessageListener implements MessageListener {
                 Event event = JSON.parseObject(textMessage.getText(), Event.class);
                 switch (event.getProcessType()) {
                     case NEW :
+                        if(EventType.REG_SUB.equals(event.getEventType())) {
+                            //说明是从新增用户的完成返回
+                        }
                         Subscriber subscriber = JSON.parseObject(event.getContent(), Subscriber.class);
                         subscriberService.addEvent(event);
                         subscriberService.addSubscriber(subscriber);

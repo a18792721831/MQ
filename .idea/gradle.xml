@@ -5,13 +5,15 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/ActiveMQSpring" />
-        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="gradleHome" value="F:/gradle5.6/gradle-5.6-bin/gradle-5.6" />
+        <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/ActiveMQSpring" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />
+        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
@@ -163,6 +165,17 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/RabbitMqTest" />
+          </set>
+        </option>
+        <option name="useAutoImport" value="true" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="LOCAL" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/des_cdc" />
+        <option name="gradleHome" value="F:/gradle-4.3/gradle-4.3" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/des_cdc" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />

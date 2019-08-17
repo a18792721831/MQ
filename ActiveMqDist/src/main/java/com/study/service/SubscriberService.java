@@ -4,6 +4,7 @@ import com.study.condition.EventCondition;
 import com.study.condition.SubscriberCondition;
 import com.study.domain.Event;
 import com.study.domain.Subscriber;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

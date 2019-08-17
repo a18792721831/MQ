@@ -5,13 +5,16 @@ import com.study.domain.Event;
 import com.study.mqservice.IntegralMqService;
 import com.study.nems.ProcessType;
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.jms.Destination;
 import java.util.function.Consumer;
 
-@Component("integralMqService")
+/**
+ * @author jiayq
+ */
+@Service("integralMqService")
 public class IntegralMqServiceImpl implements IntegralMqService {
 
     @Resource(name = "jmsIntegralTemplate")

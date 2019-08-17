@@ -60,12 +60,24 @@
                     <when test="eventType != null">
                         TYPE = #{eventType.value},
                     </when>
+                    <otherwise>
+                    </otherwise>
+                </choose>
+                <choose>
                     <when test="processType != null">
                         PROCESS = #{processType.value},
                     </when>
+                    <otherwise>
+                    </otherwise>
+                </choose>
+                <choose>
                     <when test="subscriberId != null">
                         SUBSCRIBERID = #{subscriberId},
                     </when>
+                    <otherwise>
+                    </otherwise>
+                </choose>
+                <choose>
                     <when test="updatedt != null">
                         UPDATEDT = #{updatedt},
                     </when>
@@ -104,23 +116,40 @@
                 <when test="id != null">
                     AND ID = #{id}
                 </when>
+                <otherwise>
+                </otherwise>
+            </choose>
+            <choose>
                 <when test="eventType != null">
                     AND TYPE = #{eventType.value}
                 </when>
+                <otherwise>
+                </otherwise>
+            </choose>
+            <choose>
                 <when test="processType != null">
                     AND PROCESS = #{processType.value}
                 </when>
+                <otherwise>
+                </otherwise>
+            </choose>
+            <choose>
                 <when test="createDt != null">
                     AND CREATEDT >= #{createDt}
                 </when>
+                <otherwise>
+                </otherwise>
+            </choose>
+            <choose>
                 <when test="updateDt != null">
                     AND UPDATEDT >= #{updateDt}
                 </when>
+                <otherwise>
+                </otherwise>
+            </choose>
+            <choose>
                 <when test="subscriberId != null">
-                    AND SUBSCRIBERID = #{subsciberId}
-                </when>
-                <when test="content != null">
-                    AND CONTENT = #{content}
+                    AND SUBSCRIBERID = #{subscriberId}
                 </when>
                 <otherwise>
                 </otherwise>

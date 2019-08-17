@@ -33,17 +33,19 @@ public class SubscriberServiceImpl implements SubscriberService{
     @Override
     @Transactional(rollbackFor = MyBusinessException.class)//遇到自定义异常就回滚
     public void addSubscriber(Subscriber subscriber) {
+        subscriber.setId(null);
         subscriberDao.addSubscriber(subscriber);
         EventCondition eventCondition = new EventCondition();
         eventCondition.setSubscriberId(subscriber.getId());
         eventCondition.setEventType(EventType.REG_SUB);
         eventCondition.setProcessType(ProcessType.NEW);
-        if (!Optional.of(eventDao.queryEventByCondition(eventCondition)).isPresent()){
+        if (0 == eventDao.queryEventByCondition(eventCondition).size()){
             Event event = new Event();
             event.setCreatedt(new Date());
             event.setSubscriberId(subscriber.getId());
             event.setEventType(EventType.REG_SUB);
             event.setProcessType(ProcessType.NEW);
+            event.setId(null);
             eventDao.addEvent(event);
         }
     }
@@ -95,6 +97,7 @@ public class SubscriberServiceImpl implements SubscriberService{
     @Override
     @Transactional(rollbackFor = MyBusinessException.class)//遇到自定义异常就回滚
     public void addEvent(Event event) {
+        event.setId(null);
         eventDao.addEvent(event);
     }
 

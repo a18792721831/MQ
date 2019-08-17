@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @author jiayq
@@ -32,17 +31,19 @@ public class IntegralServiceImpl implements IntegralService {
     @Override
     @Transactional(rollbackFor = MyBusinessException.class)//遇到自定义异常就回滚
     public void addIntegral(Integral integral) {
+        integral.setId(null);
         integralDao.addIntegral(integral);
         EventCondition eventCondition = new EventCondition();
         eventCondition.setSubscriberId(integral.getSubscriberId());
         eventCondition.setEventType(EventType.REG_INTEGRAL);
         eventCondition.setProcessType(ProcessType.NEW);
-        if (Optional.of(eventDao.queryEventByCondition(eventCondition)).isPresent()){
+        if (0 == eventDao.queryEventByCondition(eventCondition).size()){
             Event event = new Event();
             event.setCreatedt(new Date());
             event.setSubscriberId(integral.getSubscriberId());
             event.setEventType(EventType.REG_INTEGRAL);
             event.setProcessType(ProcessType.NEW);
+            event.setId(null);
             eventDao.addEvent(event);
         }
     }
@@ -99,6 +100,7 @@ public class IntegralServiceImpl implements IntegralService {
     @Override
     @Transactional(rollbackFor = MyBusinessException.class)//遇到自定义异常就回滚
     public void addEvent(Event event) {
+        event.setId(null);
         eventDao.addEvent(event);
     }
 

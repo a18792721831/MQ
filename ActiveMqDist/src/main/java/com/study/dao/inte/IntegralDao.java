@@ -8,7 +8,6 @@ import java.util.List;
 /**
  * @author jiayq
  */
-@Repository
 public interface IntegralDao {
 
     /**

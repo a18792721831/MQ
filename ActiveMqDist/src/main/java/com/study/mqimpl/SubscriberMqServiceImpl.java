@@ -5,7 +5,7 @@ import com.study.domain.Event;
 import com.study.mqservice.SubscriberMqService;
 import com.study.nems.ProcessType;
 import org.springframework.jms.core.JmsTemplate;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.jms.Destination;
@@ -14,7 +14,7 @@ import java.util.function.Consumer;
 /**
  * @author jiayq
  */
-@Component("subscriberMqService")
+@Service("subscriberMqService")
 public class SubscriberMqServiceImpl implements SubscriberMqService {
 
     @Resource(name = "jmsSubTemplate")

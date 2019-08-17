@@ -23,7 +23,7 @@
                 ,#{code}
             </when>
             <otherwise>
-                ,NULL
+                ,''
             </otherwise>
         </choose>
         <choose>
@@ -31,7 +31,7 @@
                 ,#{name}
             </when>
             <otherwise>
-                ,NULL
+                ,''
             </otherwise>
         </choose>
         <choose>
@@ -44,7 +44,7 @@
         </choose>
         <choose>
             <when test="state != null">
-                ,#{state}
+                ,#{state.value}
             </when>
             <otherwise>
                 ,0
@@ -59,14 +59,26 @@
                     <when test="code != null">
                         CODE = #{code},
                     </when>
+                    <otherwise>
+                    </otherwise>
+                </choose>
+                <choose>
                     <when test="name != null">
                         NAME = #{name},
                     </when>
+                    <otherwise>
+                    </otherwise>
+                </choose>
+                <choose>
                     <when test="password != null">
                         PASSWORD = #{password},
                     </when>
+                    <otherwise>
+                    </otherwise>
+                </choose>
+                <choose>
                     <when test="state != null">
-                        STATE = #{state},
+                        STATE = #{state.value},
                     </when>
                     <otherwise>
                     </otherwise>
@@ -79,7 +91,7 @@
         <if test="id != null">
             UPDATE <include refid="str_table_subscriber"/>
             <set>
-                STATE = 0
+                STATE = 1
             </set>
             WHERE ID = #{id}
         </if>
@@ -103,12 +115,24 @@
                 <when test="id != null">
                     AND ID = #{id}
                 </when>
+                <otherwise>
+                </otherwise>
+            </choose>
+            <choose>
                 <when test="code != null">
                     AND CODE = #{code}
                 </when>
+                <otherwise>
+                </otherwise>
+            </choose>
+            <choose>
                 <when test="name != null">
                     AND NAME = #{name}
                 </when>
+                <otherwise>
+                </otherwise>
+            </choose>
+            <choose>
                 <when test="state != null">
                     AND STATE = #{state}
                 </when>

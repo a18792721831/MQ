@@ -9,7 +9,6 @@ import java.util.List;
 /**
  * @author jiayq
  */
-@Repository
 public interface EventDao {
 
     /**

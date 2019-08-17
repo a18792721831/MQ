@@ -3,8 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMQSpring.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMQSpring.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMQSpring_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMQSpring_main.iml" group="ActiveMQSpring" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMQSpring_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMQSpring_test.iml" group="ActiveMQSpring" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMQSpring.ActiveMQSpring.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMQSpring.ActiveMQSpring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMQSpring.ActiveMQSpring.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMQSpring.ActiveMQSpring.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMQSpring.ActiveMQSpring.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMQSpring.ActiveMQSpring.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMQSpring_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMQSpring_main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMQSpring_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMQSpring_test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMqDist.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMqDist.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMqDist_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMqDist_main.iml" group="ActiveMqDist" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ActiveMqDist_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ActiveMqDist_test.iml" group="ActiveMqDist" />
@@ -49,6 +52,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqTest_main.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqTest_main.iml" group="RabbitMqTest" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/RabbitMqTest_test.iml" filepath="$PROJECT_DIR$/.idea/modules/RabbitMqTest_test.iml" group="RabbitMqTest" />
       <module fileurl="file://$PROJECT_DIR$/.idea/StudyMQ.iml" filepath="$PROJECT_DIR$/.idea/StudyMQ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/des_cdc_main.iml" filepath="$PROJECT_DIR$/.idea/modules/des_cdc_main.iml" group="des_cdc" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/des_cdc_test.iml" filepath="$PROJECT_DIR$/.idea/modules/des_cdc_test.iml" group="des_cdc" />
     </modules>
   </component>
 </project>

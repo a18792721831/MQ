@@ -14,24 +14,44 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-jms:5.1.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-orm:5.1.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-jdbc:5.1.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-tx:5.1.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-context:5.1.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-aop:5.1.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: com.github.noraui:ojdbc8:12.2.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.activemq:activemq-spring:5.15.9" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.activemq:activemq-pool:5.15.9" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.activemq:activemq-broker:5.15.9" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.activemq:activemq-openwire-legacy:5.15.9" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.activemq:activemq-client:5.15.9" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-jms:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-orm:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-jdbc:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-tx:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-context:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-aop:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-messaging:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-beans:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-expression:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-core:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-aspects:5.1.9.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.commons:commons-dbcp2:2.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.xbean:xbean-spring:4.2" level="project" />
+    <orderEntry type="library" name="Gradle: commons-logging:commons-logging:1.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.noraui:ojdbc8:12.2.0.1" level="project" />
     <orderEntry type="library" name="Gradle: org.mybatis:mybatis:3.5.2" level="project" />
     <orderEntry type="library" name="Gradle: org.mybatis:mybatis-spring:2.0.2" level="project" />
     <orderEntry type="library" name="Gradle: org.aspectj:aspectjrt:1.9.4" level="project" />
     <orderEntry type="library" name="Gradle: org.aspectj:aspectjweaver:1.9.4" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-messaging:5.1.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-beans:5.1.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-expression:5.1.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-core:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: com.alibaba:fastjson:1.2.58" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-nop:2.0.0-alpha0" level="project" />
+    <orderEntry type="library" name="Gradle: javax.jms:javax.jms-api:2.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.activemq:activemq-jms-pool:5.15.9" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:2.0.0-alpha0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.geronimo.specs:geronimo-jms_1.1_spec:1.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.fusesource.hawtbuf:hawtbuf:1.11" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.geronimo.specs:geronimo-j2ee-management_1.1_spec:1.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.geronimo.specs:geronimo-jta_1.0.1B_spec:1.0.1" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.commons:commons-pool2:2.6.1" level="project" />
-    <orderEntry type="library" name="Gradle: commons-logging:commons-logging:1.2" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-jcl:5.1.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-jcl:5.1.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.guava:guava:18.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.9.8" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.9.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.9.8" level="project" />
   </component>
 </module>
