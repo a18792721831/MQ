@@ -77,7 +77,11 @@
     </update>
     <update id="deleteSubscriber" parameterType="subscriber">
         <if test="id != null">
-            DELETE <include refid="str_table_subscriber"/> WHERE ID = #{id}
+            UPDATE <include refid="str_table_subscriber"/>
+            <set>
+                STATE = 0
+            </set>
+            WHERE ID = #{id}
         </if>
     </update>
     <resultMap id="selectSubscriber2POJO" type="subscriber">

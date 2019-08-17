@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.study.dao.EventDao">
     <sql id="str_select_event">
-        ID,TYPE,PROCESS,CONTENT,CREATEDT,UPDATEDT
+        ID,TYPE,PROCESS,SUBSCRIBERID,CREATEDT,UPDATEDT
     </sql>
     <sql id="str_table_even">
         EVENT
@@ -34,8 +34,8 @@
             </otherwise>
         </choose>
         <choose>
-            <when test="content != null">
-                ,#{content}
+            <when test="subscriberId != null">
+                ,#{subscriberId}
             </when>
             <otherwise>
                 ,NULL
@@ -63,8 +63,8 @@
                     <when test="processType != null">
                         PROCESS = #{processType.value},
                     </when>
-                    <when test="content != null">
-                        CONTENT = #{content},
+                    <when test="subscriberId != null">
+                        SUBSCRIBERID = #{subscriberId},
                     </when>
                     <when test="updatedt != null">
                         UPDATEDT = #{updatedt},
@@ -78,7 +78,11 @@
     </update>
     <update id="delteEvent" parameterType="com.study.domain.Event">
         <if test="id != null">
-          DELETE <include refid="str_table_even"/> WHERE ID = #{id}
+          UPDATE <include refid="str_table_even"/>
+            <set>
+                PROCESS = 3
+            </set>
+          WHERE ID = #{id}
         </if>
     </update>
     <resultMap id="selectEvent2POJO" type="com.study.domain.Event">
@@ -112,6 +116,14 @@
                 <when test="updateDt != null">
                     AND UPDATEDT >= #{updateDt}
                 </when>
+                <when test="subscriberId != null">
+                    AND SUBSCRIBERID = #{subsciberId}
+                </when>
+                <when test="content != null">
+                    AND CONTENT = #{content}
+                </when>
+                <otherwise>
+                </otherwise>
             </choose>
         </trim>
     </select>

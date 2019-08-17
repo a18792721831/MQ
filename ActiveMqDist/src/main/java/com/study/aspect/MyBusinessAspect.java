@@ -21,10 +21,10 @@ public class MyBusinessAspect {
 
     private static Logger logger = Logger.getLogger(MyBusinessAspect.class.getName());
 
-    @Pointcut("execution(* com.study.impl.subscriber.*.*(..))")
+    @Pointcut("execution(* com.study.serviceimpl.subscriber.*.*(..))")
     public void subscriberServicePointCut() {}
 
-    @Pointcut("execution(* com.study.impl.integral.*.*(..))")
+    @Pointcut("execution(* com.study.serviceimpl.integral.*.*(..))")
     public void integralServicePointCut() {}
 
     @After("integralServicePointCut()")

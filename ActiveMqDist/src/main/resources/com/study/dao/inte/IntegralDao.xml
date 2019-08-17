@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.study.dao.inte.IntegralDao">
     <sql id="str_select_integral">
-        ID,SUBSCRIBER,AMOUNT
+        ID,SUBSCRIBER,AMOUNT,STATE
     </sql>
     <sql id="str_table_integral">
         INTEGRAL
@@ -34,6 +34,14 @@
                 ,NULL
             </otherwise>
         </choose>
+        <choose>
+            <when test="state != null">
+                ,STATE = #{state}
+            </when>
+            <otherwise>
+                ,1
+            </otherwise>
+        </choose>
         )
     </insert>
     <update id="modifyIntegral" parameterType="integral">
@@ -42,10 +50,13 @@
             <set>
                 <choose>
                     <when test="subscriberId != null">
-                        AND SUBSCRIBERID = #{subscriberId}
+                       SUBSCRIBERID = #{subscriberId},
                     </when>
                     <when test="amount != null">
-                        AND AMOUNT = #{amount}
+                        AMOUNT = #{amount},
+                    </when>
+                    <when test="state != null">
+                        STATE = #{state},
                     </when>
                     <otherwise>
                     </otherwise>
@@ -56,7 +67,11 @@
     </update>
     <update id="deleteIntegral" parameterType="integral">
         <if test="id != null">
-            DELETE <include refid="str_table_integral"/> WHERE ID = #{id}
+            UPDATE <include refid="str_table_integral"/>
+            <set>
+                STATE = 1,
+            </set>
+            WHERE ID = #{id}
         </if>
     </update>
     <select id="queryIntegralById" parameterType="java.lang.Long" resultType="integral">

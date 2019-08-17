@@ -19,7 +19,12 @@ public enum ProcessType {
     /**
      * 已完成
      */
-    FINISH("已完成",2L);
+    FINISH("已完成",2L),
+
+    /**
+     * 已取消
+     */
+    CANCLE("已取消", 3L);
 
     private String name;
 

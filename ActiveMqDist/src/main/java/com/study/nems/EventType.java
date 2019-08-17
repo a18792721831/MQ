@@ -14,7 +14,17 @@ public enum EventType {
     /**
      * 创建积分
      */
-    REG_INTEGRAL("创建积分",1L);
+    REG_INTEGRAL("创建积分",1L),
+
+    /**
+     * 删除用户
+     */
+    DEL_SUB("删除用户", 2L),
+
+    /**
+     * 删除积分
+     */
+    DEL_INTEGRAL("删除积分", 3L);
 
     private String name;
 

@@ -1,5 +1,6 @@
 package com.study.domain;
 
+import com.study.nems.State;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -28,9 +29,15 @@ public class Integral implements Serializable {
      */
     private Double amount;
 
+    /**
+     * state
+     */
+    private State state;
+
     @Override
     public String toString() {
-        return "Integral\t[id=" + this.id + ",subscriberId=" + this.subscriberId + ",amount" + this.amount + "]";
+        return "Integral\t[id=" + this.id + ",subscriberId=" + this.subscriberId
+                + ",amount" + this.amount + ",state=" + this.state == null ? "" : this.state.name() + "]";
     }
 
     public Long getId() {
@@ -55,5 +62,13 @@ public class Integral implements Serializable {
 
     public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
     }
 }

@@ -1,6 +1,8 @@
 package com.study.service;
 
+import com.study.condition.EventCondition;
 import com.study.condition.SubscriberCondition;
+import com.study.domain.Event;
 import com.study.domain.Subscriber;
 
 import java.util.List;
@@ -48,4 +50,33 @@ public interface SubscriberService {
      * @return
      */
     List<Subscriber> querySubscriberByCondition(SubscriberCondition condition);
+
+
+    /**
+     * 获取用户数据库需要发布到积分数据库的事件
+     * 即，用户数据库中新建的事件
+     * @return
+     */
+    List<Event> getNewEvent();
+
+    /**
+     * 修改用户事件表的事件
+     * @param event
+     */
+    void modifyEvent(Event event);
+
+
+    /**
+     * 增加事件，从积分数据库发布的消息得到
+     * 即，积分数据库中新建的积分，同步到用户数据库
+     * @param event
+     */
+    void addEvent(Event event);
+
+    /**
+     * 根据条件查询事件
+     * @param eventCondition
+     * @return
+     */
+    List<Event> queryEventByEventCondition(EventCondition eventCondition);
 }

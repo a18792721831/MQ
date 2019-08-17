@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="activeMQConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="tcp://localhost:61616"/>
+    </bean>
+    <bean id="cachingConnectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">
+        <property name="targetConnectionFactory" ref="activeMQConnectionFactory"/>
+        <!-- 设置最大连接数为5 -->
+        <property name="sessionCacheSize" value="5"/>
+    </bean>
+    <!-- 声明用户主题 -->
+    <bean id="subscriberTopic" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg index="0" value="active-sub"/>
+    </bean>
+    <!-- 声明积分主题 -->
+    <bean id="integralTopic" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg index="0" value="active-integral"/>
+    </bean>
+    <!-- 创建连接模板，指定了消息转换器 -->
+    <bean id="jmsSubTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="cachingConnectionFactory"/>
+        <property name="defaultDestination" ref="subscriberTopic"/>
+    </bean>
+    <!-- 创建连接模板，指定了消息转换器 -->
+    <bean id="jmsIntegralTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="cachingConnectionFactory"/>
+        <property name="defaultDestination" ref="subscriberTopic"/>
+    </bean>
+    <!--注册用户监听-->
+    <bean id="subListener" class="com.study.messagecomsume.SubsciberMessageListener"/>
+    <!--注册积分监听-->
+    <bean id="integralListener" class="com.study.messagecomsume.IntegralMessageListener"/>
+    <!--用户主题转换器-->
+    <bean id="subContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="cachingConnectionFactory"/>
+        <property name="destination" ref="subscriberTopic"/>
+        <property name="messageListener" ref="subListener"/>
+    </bean>
+    <!--积分主题转换器-->
+    <bean id="topic1Container" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="cachingConnectionFactory"/>
+        <property name="destination" ref="integralTopic"/>
+        <property name="messageListener" ref="integralListener"/>
+    </bean>
+
+
+
+    <!-- 创建连接工厂，指定url -->
+    <!--<bean id="jmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory">-->
+        <!--<property name="connectionFactory">-->
+            <!--<bean class="org.apache.activemq.ActiveMQConnectionFactory">-->
+                <!--<property name="brokerURL">-->
+                    <!--<value>tcp://localhost:61616</value>-->
+                <!--</property>-->
+            <!--</bean>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash; 使用缓存连接工厂管理 &ndash;&gt;-->
+    <!--<bean id="cachingConnectionFactory" class="org.springframework.jms.connection.CachingConnectionFactory">-->
+        <!--<property name="targetConnectionFactory" ref="jmsFactory"/>-->
+        <!--&lt;!&ndash; 设置最大连接数为5 &ndash;&gt;-->
+        <!--<property name="sessionCacheSize" value="5"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash; 创建连接模板，指定了消息转换器 &ndash;&gt;-->
+    <!--<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">-->
+        <!--<property name="connectionFactory" ref="cachingConnectionFactory"/>-->
+        <!--<property name="messageConverter">-->
+            <!--<bean class="org.springframework.jms.support.converter.SimpleMessageConverter"/>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash; 声明用户主题 &ndash;&gt;-->
+    <!--<bean id="subscriberTopic" class="org.apache.activemq.command.ActiveMQTopic">-->
+        <!--<constructor-arg index="0" value="active-sub"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash; 声明积分主题 &ndash;&gt;-->
+    <!--<bean id="integralTopic" class="org.apache.activemq.command.ActiveMQTopic">-->
+        <!--<constructor-arg index="0" value="active-integral"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash;注册用户监听&ndash;&gt;-->
+    <!--<bean id="subListener" class="com.study.messagecomsume.SubsciberMessageListener"/>-->
+    <!--&lt;!&ndash;注册积分监听&ndash;&gt;-->
+    <!--<bean id="integralListener" class="com.study.messagecomsume.IntegralMessageListener"/>-->
+    <!--&lt;!&ndash;用户主题转换器&ndash;&gt;-->
+    <!--<bean id="subContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">-->
+        <!--<property name="connectionFactory" ref="cachingConnectionFactory"/>-->
+        <!--<property name="destination" ref="subscriberTopic"/>-->
+        <!--<property name="messageListener" ref="subListener"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash;积分主题转换器&ndash;&gt;-->
+    <!--<bean id="topic1Container" class="org.springframework.jms.listener.DefaultMessageListenerContainer">-->
+        <!--<property name="connectionFactory" ref="cachingConnectionFactory"/>-->
+        <!--<property name="destination" ref="integralTopic"/>-->
+        <!--<property name="messageListener" ref="integralListener"/>-->
+    <!--</bean>-->
+</beans>

@@ -41,6 +41,11 @@ public class EventCondition implements Serializable {
      */
     private Date updateDt;
 
+    /**
+     * subscriberId
+     */
+    private Long subscriberId;
+
     public Long getId() {
         return id;
     }
@@ -79,5 +84,13 @@ public class EventCondition implements Serializable {
 
     public void setUpdateDt(Date updateDt) {
         this.updateDt = updateDt;
+    }
+
+    public Long getSubscriberId() {
+        return subscriberId;
+    }
+
+    public void setSubscriberId(Long subscriberId) {
+        this.subscriberId = subscriberId;
     }
 }

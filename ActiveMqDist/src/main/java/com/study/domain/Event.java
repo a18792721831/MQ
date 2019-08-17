@@ -34,9 +34,10 @@ public class Event implements Serializable {
     private ProcessType processType;
 
     /**
-     * content
+     * subscriberId
+     * (实现用户多个操作全部删除等场景，避免 1->2->1 => 1->1->2的情况)
      */
-    private String content;
+    private Long subscriberId;
 
     /**
      * createdt
@@ -48,15 +49,21 @@ public class Event implements Serializable {
      */
     private Date updatedt;
 
+    /**
+     * 通过事件传输的信息
+     * (主要用来积分传输给用户时，定义的用户信息)
+     */
+    private String content;
+
     @Override
     public String toString() {
         try {
             return "Event\t[id=" + this.id + ",eventType=" + (this.eventType == null ? "" : new String(this.eventType.getName().getBytes("GBK"),"UTF-8")) +
                     ",processType=" + (this.processType == null ? "" : new String(this.processType.getName().getBytes("UTF-8"),"UTF-8")) +
-                    ",content=" + (this.content == null ? "" : this.content) +
+                    ",subscriberId=" + (this.subscriberId == null ? "" : this.subscriberId) +
                     ",createdt=" + (this.createdt == null ? "" : new SimpleDateFormat("yyyy-mm-dd HH:mm:ss").format(this.createdt)) +
                     ",updatedt=" + (this.updatedt == null ? "" : new SimpleDateFormat("yyyy-mm-dd HH:mm:ss").format(this.updatedt)) +
-                    "]";
+                    ",content=" + this.content + "]";
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -87,14 +94,6 @@ public class Event implements Serializable {
         this.processType = processType;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
     public Date getCreatedt() {
         return createdt;
     }
@@ -109,5 +108,21 @@ public class Event implements Serializable {
 
     public void setUpdatedt(Date updatedt) {
         this.updatedt = updatedt;
+    }
+
+    public Long getSubscriberId() {
+        return subscriberId;
+    }
+
+    public void setSubscriberId(Long subscriberId) {
+        this.subscriberId = subscriberId;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

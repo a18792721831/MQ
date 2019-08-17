@@ -1,5 +1,7 @@
 package com.study.service;
 
+import com.study.condition.EventCondition;
+import com.study.domain.Event;
 import com.study.domain.Integral;
 
 import java.util.List;
@@ -57,4 +59,30 @@ public interface IntegralService {
      */
     List<Integral> queryIntegralByAmount(Double amount);
 
+    /**
+     * 获取积分数据库需要发布到用户数据库的事件
+     * 即，创建积分引发的创建用户
+     * @return
+     */
+    List<Event> getNewIntegralEvent();
+
+    /**
+     * 修改积分数据库的事件
+     * @param event
+     */
+    void modifyEvent(Event event);
+
+    /**
+     * 同步事件：
+     * 同步用户数据库发布的事件到积分数据库
+     * @param event
+     */
+    void addEvent(Event event);
+
+    /**
+     * 根据条件查询事件
+     * @param eventCondition
+     * @return
+     */
+    List<Event> queryEventByEventCondition(EventCondition eventCondition);
 }
