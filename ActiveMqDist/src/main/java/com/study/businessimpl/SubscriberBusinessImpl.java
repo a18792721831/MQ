@@ -10,7 +10,7 @@ import com.study.mqservice.SubscriberMqService;
 import com.study.nems.EventType;
 import com.study.nems.ProcessType;
 import com.study.nems.State;
-import com.study.service.SubscriberService;
+import com.study.routing.SubscriberRouting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +26,7 @@ import java.util.Random;
 public class SubscriberBusinessImpl implements SubscriberBusiness {
 
     @Autowired
-    private SubscriberService subscriberService;
+    private SubscriberRouting subscriberRouting;
 
     @Autowired
     private SubscriberMqService subscriberMqService;
@@ -37,12 +37,12 @@ public class SubscriberBusinessImpl implements SubscriberBusiness {
 
     @Override
     public void addSubsciber(Subscriber subscriber) {
-        subscriberService.addSubscriber(subscriber);
+        subscriberRouting.addSubscriber(subscriber);
         EventCondition eventCondition = new EventCondition();
         eventCondition.setSubscriberId(subscriber.getId());
         eventCondition.setEventType(EventType.REG_SUB);
         eventCondition.setProcessType(ProcessType.NEW);
-        List<Event> eventList = subscriberService.queryEventByEventCondition(eventCondition);
+        List<Event> eventList = subscriberRouting.queryEventByEventCondition(eventCondition);
         if (1 == eventList.size()) {
             Event event = eventList.get(0);
             Integral integral = new Integral();
@@ -51,7 +51,7 @@ public class SubscriberBusinessImpl implements SubscriberBusiness {
             integral.setState(State.VALID);
             event.setContent(JSON.toJSONString(integral));
             subscriberMqService.publishSubsciberEvent(subscriberTopic, event,
-                    event1 -> subscriberService.modifyEvent(event1));
+                    event1 -> subscriberRouting.modifyEvent(event1));
         }
     }
 

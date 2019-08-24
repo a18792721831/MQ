@@ -1,7 +1,9 @@
 package com.study.dao.inte;
 
 import com.study.domain.Integral;
+import com.study.exception.MyBusinessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

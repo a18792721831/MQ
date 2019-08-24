@@ -2,7 +2,7 @@ package com.study.timingtask;
 
 import com.study.domain.Event;
 import com.study.mqservice.SubscriberMqService;
-import com.study.service.SubscriberService;
+import com.study.routing.SubscriberRouting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -18,7 +18,7 @@ import java.util.List;
 public class SubscriberTimingTask {
 
     @Autowired
-    private SubscriberService subscriberService;
+    private SubscriberRouting subscriberRouting;
 
     @Autowired
     private SubscriberMqService subscriberMqService;
@@ -33,10 +33,11 @@ public class SubscriberTimingTask {
      */
     @Scheduled(cron = "*/5 * * * * *")
     public void execute() {
-        List<Event> subscriberEvent = subscriberService.getNewEvent();
+//        System.out.println(new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date().toString()));
+        List<Event> subscriberEvent = subscriberRouting.getNewEvent();
         subscriberEvent.forEach(event ->
                 subscriberMqService.publishSubsciberEvent(
                         subscriberTopic, event, event1 ->
-                                subscriberService.modifyEvent(event1)));
+                                subscriberRouting.modifyEvent(event1)));
     }
 }

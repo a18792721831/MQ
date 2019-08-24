@@ -8,9 +8,10 @@ import com.study.exception.MyBusinessException;
 import com.study.mqservice.SubscriberMqService;
 import com.study.nems.EventType;
 import com.study.nems.ProcessType;
-import com.study.service.SubscriberService;
+import com.study.routing.SubscriberRouting;
 import com.study.util.EventFinishUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.jms.*;
@@ -19,10 +20,11 @@ import java.util.Optional;
 /**
  * @author jiayq
  */
+@Component
 public class SubsciberMessageListener implements MessageListener {
 
     @Autowired
-    private SubscriberService subscriberService;
+    private SubscriberRouting subscriberRouting;
 
     @Autowired
     private SubscriberMqService subscriberMqService;
@@ -51,10 +53,10 @@ public class SubsciberMessageListener implements MessageListener {
                             //说明是从新增用户的完成返回
                         }
                         Subscriber subscriber = JSON.parseObject(event.getContent(), Subscriber.class);
-                        subscriberService.addEvent(event);
-                        subscriberService.addSubscriber(subscriber);
+                        subscriberRouting.addEvent(event);
+                        subscriberRouting.addSubscriber(subscriber);
                         event.setProcessType(ProcessType.FINISH);
-                        subscriberService.modifyEvent(event);
+                        subscriberRouting.modifyEvent(event);
                         subscriberMqService.publishSubsciberEvent(subscriberTopic, event,
                                 event1 -> System.out.println());
                         break;
@@ -62,8 +64,8 @@ public class SubsciberMessageListener implements MessageListener {
                         EventCondition eventCondition = new EventCondition();
                         eventCondition.setSubscriberId(event.getSubscriberId());
                         eventCondition.setEventType(event.getEventType());
-                        subscriberService.modifyEvent(EventFinishUtil.finishEvent(
-                                Optional.of(subscriberService.queryEventByEventCondition(eventCondition))));
+                        subscriberRouting.modifyEvent(EventFinishUtil.finishEvent(
+                                Optional.of(subscriberRouting.queryEventByEventCondition(eventCondition))));
                         break;
                         default:
                             throw new MyBusinessException("event process type is error");

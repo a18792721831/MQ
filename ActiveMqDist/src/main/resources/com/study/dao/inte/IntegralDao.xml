@@ -4,13 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.study.dao.inte.IntegralDao">
     <sql id="str_select_integral">
-        ID,SUBSCRIBER,AMOUNT,STATE
+        ID,SUBSCRIBERID,AMOUNT,STATE
     </sql>
     <sql id="str_table_integral">
         INTEGRAL
     </sql>
     <insert id="addIntegral" parameterType="integral" useGeneratedKeys="true" keyProperty="id" keyColumn="ID">
-        <selectKey keyColumn="ID" keyProperty="id" resultType="java.lang.Long" order="BEFORE">
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="BEFORE">
             SELECT SEQ_INTEGRAL.NEXTVAL AS ID FROM DUAL
         </selectKey>
         INSERT INTO
@@ -20,7 +20,7 @@
         (#{id}
         <choose>
             <when test="subscriberId != null">
-                ,SUBSCRIBERID = #{subscriberId}
+                ,#{subscriberId}
             </when>
             <otherwise>
                 ,NULL
@@ -28,7 +28,7 @@
         </choose>
         <choose>
             <when test="amount != null">
-                ,AMOUNT = #{amount}
+                ,#{amount}
             </when>
             <otherwise>
                 ,NULL
@@ -36,7 +36,7 @@
         </choose>
         <choose>
             <when test="state != null">
-                ,STATE = #{state.value}
+                ,#{state.value}
             </when>
             <otherwise>
                 ,1

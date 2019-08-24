@@ -1,13 +1,17 @@
 package com.study.timingtask;
 
+import com.study.domain.Event;
 import com.study.mqservice.IntegralMqService;
-import com.study.service.IntegralService;
+import com.study.routing.IntegralRouting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.jms.Destination;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @author jiayq
@@ -16,7 +20,7 @@ import javax.jms.Destination;
 public class IntegralTimingTask {
 
     @Autowired
-    private IntegralService integralService;
+    private IntegralRouting integralRouting;
 
     @Autowired
     private IntegralMqService integralMqService;
@@ -31,9 +35,11 @@ public class IntegralTimingTask {
      */
     @Scheduled(cron = "*/5 * * * * *")
     public void execute() {
-        integralService.getNewIntegralEvent().forEach(event ->
+//        System.out.println(new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date().toString()));
+        List<Event> integralEventList = integralRouting.getNewIntegralEvent();
+        integralEventList.forEach(event ->
                 integralMqService.publishIntegralEvent(
                         integralTopic, event, event1 ->
-                                integralService.modifyEvent(event1)));
+                                integralRouting.modifyEvent(event1)));
     }
 }

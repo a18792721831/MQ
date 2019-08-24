@@ -10,15 +10,13 @@ import com.study.mqservice.IntegralMqService;
 import com.study.nems.EventType;
 import com.study.nems.ProcessType;
 import com.study.nems.State;
-import com.study.service.IntegralService;
+import com.study.routing.IntegralRouting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.jms.Destination;
 import java.util.List;
-import java.util.Optional;
-import java.util.Random;
 
 /**
  * @author jiayq
@@ -27,7 +25,7 @@ import java.util.Random;
 public class IntegralBusinessImpl implements IntegralBusiness {
 
     @Autowired
-    private IntegralService integralService;
+    private IntegralRouting integralRouting;
 
     @Autowired
     private IntegralMqService integralMqService;
@@ -37,12 +35,11 @@ public class IntegralBusinessImpl implements IntegralBusiness {
 
     @Override
     public void addIntegral(Integral integral) {
-        integralService.addIntegral(integral);
+        integralRouting.addIntegral(integral);
         EventCondition eventCondition = new EventCondition();
         eventCondition.setSubscriberId(integral.getSubscriberId());
-        eventCondition.setProcessType(ProcessType.NEW);
         eventCondition.setEventType(EventType.REG_INTEGRAL);
-        List<Event> eventList = integralService.queryEventByEventCondition(eventCondition);
+        List<Event> eventList = integralRouting.queryEventByEventCondition(eventCondition);
         if (1 == eventList.size()) {
             Event event = eventList.get(0);
             Subscriber subscriber = new Subscriber();
@@ -52,7 +49,7 @@ public class IntegralBusinessImpl implements IntegralBusiness {
             subscriber.setState(State.VALID);
             event.setContent(JSON.toJSONString(subscriber));
             integralMqService.publishIntegralEvent(integralTopic, event,
-                    event1 -> integralService.modifyEvent(event1));
+                    event1 -> integralRouting.modifyEvent(event1));
         }
     }
 

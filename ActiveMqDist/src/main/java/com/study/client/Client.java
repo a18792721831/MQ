@@ -6,8 +6,6 @@ import com.study.domain.Integral;
 import com.study.domain.Subscriber;
 import com.study.exception.MyBusinessException;
 import com.study.nems.State;
-import com.study.service.SubscriberService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

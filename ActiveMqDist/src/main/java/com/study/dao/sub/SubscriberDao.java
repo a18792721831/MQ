@@ -2,7 +2,9 @@ package com.study.dao.sub;
 
 import com.study.condition.SubscriberCondition;
 import com.study.domain.Subscriber;
+import com.study.exception.MyBusinessException;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

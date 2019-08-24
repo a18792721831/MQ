@@ -16,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @author jiayq
@@ -31,7 +30,7 @@ public class SubscriberServiceImpl implements SubscriberService{
     private EventDao eventDao;
 
     @Override
-    @Transactional(rollbackFor = MyBusinessException.class)//遇到自定义异常就回滚
+    @Transactional(rollbackFor = MyBusinessException.class)
     public void addSubscriber(Subscriber subscriber) {
         subscriber.setId(null);
         subscriberDao.addSubscriber(subscriber);
@@ -51,13 +50,13 @@ public class SubscriberServiceImpl implements SubscriberService{
     }
 
     @Override
-    @Transactional(rollbackFor = MyBusinessException.class)//遇到自定义异常就回滚
+    @Transactional(rollbackFor = MyBusinessException.class)
     public void modifySubscriber(Subscriber subscriber) {
         subscriberDao.modifySubscriber(subscriber);
     }
 
     @Override
-    @Transactional(rollbackFor = MyBusinessException.class)//遇到自定义异常就回滚
+    @Transactional(rollbackFor = MyBusinessException.class)
     public void deleteSubscriber(Subscriber subscriber) {
         EventCondition eventCondition = new EventCondition();
         eventDao.queryEventByCondition(eventCondition).forEach(event -> eventDao.delteEvent(event));
@@ -89,13 +88,13 @@ public class SubscriberServiceImpl implements SubscriberService{
     }
 
     @Override
-    @Transactional(rollbackFor = MyBusinessException.class)//遇到自定义异常就回滚
+    @Transactional(rollbackFor = MyBusinessException.class)
     public void modifyEvent(Event event) {
         eventDao.modifyEvent(event);
     }
 
     @Override
-    @Transactional(rollbackFor = MyBusinessException.class)//遇到自定义异常就回滚
+    @Transactional(rollbackFor = MyBusinessException.class)
     public void addEvent(Event event) {
         event.setId(null);
         eventDao.addEvent(event);

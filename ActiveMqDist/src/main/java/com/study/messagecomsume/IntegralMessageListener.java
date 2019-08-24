@@ -7,9 +7,10 @@ import com.study.domain.Integral;
 import com.study.exception.MyBusinessException;
 import com.study.mqservice.IntegralMqService;
 import com.study.nems.ProcessType;
-import com.study.service.IntegralService;
+import com.study.routing.IntegralRouting;
 import com.study.util.EventFinishUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.jms.*;
@@ -18,10 +19,11 @@ import java.util.Optional;
 /**
  * @author jiayq
  */
+@Component
 public class IntegralMessageListener implements MessageListener {
 
     @Autowired
-    private IntegralService integralService;
+    private IntegralRouting integralRouting;
 
     @Autowired
     private IntegralMqService integralMqService;
@@ -38,10 +40,10 @@ public class IntegralMessageListener implements MessageListener {
                 switch (subEvent.getProcessType()) {
                     case NEW:
                         Integral integral = JSON.parseObject(subEvent.getContent(), Integral.class);
-                        integralService.addEvent(subEvent);
-                        integralService.addIntegral(integral);
+                        integralRouting.addEvent(subEvent);
+                        integralRouting.addIntegral(integral);
                         subEvent.setProcessType(ProcessType.FINISH);
-                        integralService.modifyEvent(subEvent);
+                        integralRouting.modifyEvent(subEvent);
                         integralMqService.publishIntegralEvent(integralTopic, subEvent,
                                 event -> System.out.println());
                         break;
@@ -49,8 +51,8 @@ public class IntegralMessageListener implements MessageListener {
                         EventCondition eventCondition = new EventCondition();
                         eventCondition.setEventType(subEvent.getEventType());
                         eventCondition.setSubscriberId(subEvent.getSubscriberId());
-                        integralService.modifyEvent(EventFinishUtil.finishEvent(
-                                Optional.of(integralService.queryEventByEventCondition(eventCondition))));
+                        integralRouting.modifyEvent(EventFinishUtil.finishEvent(
+                                Optional.of(integralRouting.queryEventByEventCondition(eventCondition))));
                         break;
                         default:
                             throw new MyBusinessException("event process type is error");

@@ -3,6 +3,7 @@ package com.study.serviceimpl.integral;
 import com.study.condition.EventCondition;
 import com.study.dao.EventDao;
 import com.study.dao.inte.IntegralDao;
+import com.study.data.manage.DataSourceManage;
 import com.study.domain.Event;
 import com.study.domain.Integral;
 import com.study.exception.MyBusinessException;
@@ -29,13 +30,13 @@ public class IntegralServiceImpl implements IntegralService {
     private EventDao eventDao;
 
     @Override
-    @Transactional(rollbackFor = MyBusinessException.class)//遇到自定义异常就回滚
+    @Transactional(rollbackFor = MyBusinessException.class)
     public void addIntegral(Integral integral) {
+        System.out.println(DataSourceManage.get());
         integral.setId(null);
         integralDao.addIntegral(integral);
         EventCondition eventCondition = new EventCondition();
         eventCondition.setSubscriberId(integral.getSubscriberId());
-        eventCondition.setEventType(EventType.REG_INTEGRAL);
         eventCondition.setProcessType(ProcessType.NEW);
         if (0 == eventDao.queryEventByCondition(eventCondition).size()){
             Event event = new Event();
@@ -49,13 +50,13 @@ public class IntegralServiceImpl implements IntegralService {
     }
 
     @Override
-    @Transactional(rollbackFor = MyBusinessException.class)//遇到自定义异常就回滚
+    @Transactional(rollbackFor = MyBusinessException.class)
     public void modifyIntegral(Integral integral) {
         integralDao.modifyIntegral(integral);
     }
 
     @Override
-    @Transactional(rollbackFor = MyBusinessException.class)//遇到自定义异常就回滚
+    @Transactional(rollbackFor = MyBusinessException.class)
     public void deleteIntegral(Integral integral) {
         EventCondition eventCondition = new EventCondition();
         eventCondition.setSubscriberId(integral.getSubscriberId());
@@ -92,13 +93,13 @@ public class IntegralServiceImpl implements IntegralService {
     }
 
     @Override
-    @Transactional(rollbackFor = MyBusinessException.class)//遇到自定义异常就回滚
+    @Transactional(rollbackFor = MyBusinessException.class)
     public void modifyEvent(Event event) {
         eventDao.modifyEvent(event);
     }
 
     @Override
-    @Transactional(rollbackFor = MyBusinessException.class)//遇到自定义异常就回滚
+    @Transactional(rollbackFor = MyBusinessException.class)
     public void addEvent(Event event) {
         event.setId(null);
         eventDao.addEvent(event);
